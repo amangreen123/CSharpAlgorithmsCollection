@@ -40,15 +40,20 @@ namespace Stack_Queues_Sorting
 
         public string Dequeue() {
 
-            char peek = '\u0000';
-
-            if (front != null)
+            if (isEmpty())
             {
-                peek = front.value;
-                front = front.next;
+                return null;
+            }
+            
+            string value = front.value;
+            front = front.next;
+
+            if (front == null)
+            {
+                tail = null; // If the queue is now empty, update the tail
             }
 
-            return peek;
+            return value;
 
         }
 

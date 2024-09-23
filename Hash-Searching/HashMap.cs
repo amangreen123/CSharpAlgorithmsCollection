@@ -116,8 +116,8 @@ namespace Hash_Searching
             int hash = makeHashCode(item);
             table[hash].Enqueue(item);
         }
-         
 
+       
     }
 
 }

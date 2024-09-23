@@ -75,21 +75,18 @@ namespace Hash_Searching
                     Console.WriteLine("-----------------------------");
 
                     //HashMap hashMap = new HashMap();
-                    //int[] hashValues = new int[randomMagicItems.Count];
-                    Queue hashvalues = new Queue();
+                    int[] hashValues = new int[666];
+                    //Queue hashvalues = new Queue();
                     int hashCode = 0;
 
                     for (int i = 0; i < randomMagicItems.Count; i++) {
-                        
-                        //Console.WriteLine(i);
-                        Console.WriteLine($"{i + 1,3}. {randomMagicItems[i],-20}");
+
                         hashCode = HashMap.makeHashCode(randomMagicItems[i]);
-                        Console.WriteLine($"Hash code: {hashCode:D3}");
-                        Console.WriteLine();
-                        hashvalues.Enqueue((char)hashCode);
+                        hashValues[i] = hashCode;
+                        Console.WriteLine(String.Format("{0:D3}", hashCode));
                     }
 
-                    HashMap.analyzeHashValues(hashvalues);
+                    HashMap.analyzeHashValues(hashValues);
 
                     sr.Close();
                     Console.ReadLine();

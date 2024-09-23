@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hash-Searching")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36b01626d4715af124c99b52413744cbc2589cb0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a97ad60ded8f6ebd17039017698e0f39780eed9a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hash-Searching")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hash-Searching")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

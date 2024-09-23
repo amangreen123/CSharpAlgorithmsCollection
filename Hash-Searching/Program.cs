@@ -64,11 +64,11 @@ namespace Hash_Searching
                     Console.WriteLine("--- Linear Search ---");
                     
                     int linearSerachResult = Search.LinearSearch(randomMagicItems, randomMagicItems[chosenItem]);
-                    Console.WriteLine($"Linear Search Result: Index {linearSerachResult}\n");
+                    Console.WriteLine($"Linear Search Result: Position {linearSerachResult}\n");
                    
                     Console.WriteLine("--- Binary Search ---");
                     int binaryResult = Search.BinarySearch(randomMagicItems, randomMagicItems[chosenItem]);
-                    Console.WriteLine($"Binary Search Result: Index {binaryResult}\n");
+                    Console.WriteLine($"Binary Search Result: Position {binaryResult}\n");
 
                 }
 

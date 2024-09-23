@@ -18,7 +18,7 @@ namespace Hash_Searching
             
             Random random = new Random();
             Search Search = new Search();
-            Sort sort = new Sort();      
+            Sort sort = new Sort();
 
 
             try
@@ -62,20 +62,41 @@ namespace Hash_Searching
 
                     Console.WriteLine($"Randomly chosen item to search for: '{target}'\n");
                     Console.WriteLine("--- Linear Search ---");
-                    
+
                     int linearSerachResult = Search.LinearSearch(randomMagicItems, randomMagicItems[chosenItem]);
                     Console.WriteLine($"Linear Search Result: Position {linearSerachResult}\n");
-                   
+
                     Console.WriteLine("--- Binary Search ---");
                     int binaryResult = Search.BinarySearch(randomMagicItems, randomMagicItems[chosenItem]);
                     Console.WriteLine($"Binary Search Result: Position {binaryResult}\n");
 
+
+                    Console.WriteLine("Hash code tests and analysis.");
+                    Console.WriteLine("-----------------------------");
+
+                    //HashMap hashMap = new HashMap();
+                    //int[] hashValues = new int[randomMagicItems.Count];
+                    Queue hashvalues = new Queue();
+                    int hashCode = 0;
+
+                    for (int i = 0; i < randomMagicItems.Count; i++) {
+                        
+                        //Console.WriteLine(i);
+                        Console.WriteLine($"{i + 1,3}. {randomMagicItems[i],-20}");
+                        hashCode = HashMap.makeHashCode(randomMagicItems[i]);
+                        Console.WriteLine($"Hash code: {hashCode:D3}");
+                        Console.WriteLine();
+                        hashvalues.Enqueue((char)hashCode);
+                    }
+
+                    HashMap.analyzeHashValues(hashvalues);
+
+                    sr.Close();
+                    Console.ReadLine();
+
                 }
-
-                sr.Close();
-                Console.ReadLine();
-
             }
+
             catch (Exception e)
             {
 
@@ -107,9 +128,10 @@ namespace Hash_Searching
                 //Console.WriteLine($"Item Added: {randomItem}");
                // count++;
             }
-
             return randomItems;
         }
+
+
     }
 
 

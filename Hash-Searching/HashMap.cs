@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,7 @@ namespace Hash_Searching
     {
 
         private const int HASH_TABLE_SIZE = 250;
-        public Queue[] queues = new Queue[HASH_TABLE_SIZE];
-    
+        public Queue[] table = new Queue[HASH_TABLE_SIZE];
 
             public static int makeHashCode(String str)
             {
@@ -33,37 +33,34 @@ namespace Hash_Searching
 
             }
 
-            public static void analyzeHashValues(Queue hashvalues)
+            public static void analyzeHashValues(int[] hashvalues)
             {
-                Console.WriteLine("HashTable Usage");
-                int HASH_TABLE_SIZE = 250;
-
                 int asteriskCount = 0;
                 int [] bucketCount = new int [HASH_TABLE_SIZE];
                 int totalCount = 0;
                 int arrayIndex = 0;
                 int lineinFile = 666;
 
-                // Process each hash value in the queue
-                while (!hashvalues.isEmpty())
+            Console.WriteLine("HashTable Usage");
+
+            Array.Sort(hashvalues);
+
+
+            for (int i = 0; i < HASH_TABLE_SIZE; i++)
+            {
+                bucketCount[i] = hashvalues[i];
+                totalCount += bucketCount[i];
+                
+                if (bucketCount[i] > 0)
                 {
-                    char hashValue = hashvalues.Dequeue();
-                    int index = (int)hashValue;
-
-                    if (index >= 0 && index < HASH_TABLE_SIZE)
-                    {
-                        bucketCount[index]++;
-                        totalCount++;
-                    }
-                    else if (hashValue == '*')
-                    {
-                        asteriskCount++;
-                    }
+                    Console.WriteLine($"Bucket {i}: {new string('*', bucketCount[i])}");
+                    Console.WriteLine($"Count: {bucketCount[i]}");
                 }
+            }
 
-                // Print analysis results
-                Console.WriteLine($"Total hash values: {totalCount}");
-                Console.WriteLine($"Asterisk count: {asteriskCount}");
+            // Print analysis results
+            Console.WriteLine($"Total hash values: {totalCount}");
+            Console.WriteLine($"Asterisk count: {asteriskCount}");
 
                 int emptyBuckets = 0;
                 int maxBucketSize = 0;
@@ -114,13 +111,12 @@ namespace Hash_Searching
                 Console.WriteLine($"{stdDev:F2}");
             }
 
-            public static void addToTable(string item)
+        public void addHash (string item)
         {
-                int hash = makeHashCode(item);
-                Queue table = new Queue();
-                table[hash].Enqueue(item);
-                
+            int hash = makeHashCode(item);
+            table[hash].Enqueue(item);
         }
+         
 
     }
 

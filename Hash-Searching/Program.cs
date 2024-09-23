@@ -58,8 +58,9 @@ namespace Hash_Searching
                     Console.WriteLine();
 
                     int chosenItem = random.Next(randomMagicItems.Count);
+                    string target = randomMagicItems[chosenItem];
 
-                    Console.WriteLine($"Randomly chosen item to search for: '{chosenItem}'\n");
+                    Console.WriteLine($"Randomly chosen item to search for: '{target}'\n");
                     Console.WriteLine("--- Linear Search ---");
                     
                     int linearSerachResult = Search.LinearSearch(randomMagicItems, randomMagicItems[chosenItem]);

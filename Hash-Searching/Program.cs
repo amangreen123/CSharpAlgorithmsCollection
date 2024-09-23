@@ -1,14 +1,25 @@
-﻿namespace Hash_Searching
+﻿using System;
+using Stack_Queues_Sorting;
+
+
+
+namespace Hash_Searching
 {
+
+
     internal class Program
     {
         static void HashandSearch()
         {
-
+           
             string filepath = @"C:\Users\aaron\Desktop\magicitems.txt";
             List<string> magicItems = new List<string>();
             int linecount = 0;
+            
+            Random random = new Random();
             Search Search = new Search();
+            Sort sort = new Sort();      
+
 
             try
             {
@@ -30,18 +41,36 @@
                         if (!string.IsNullOrEmpty(cleanLine)) // Only add non-empty lines
                         {
                             magicItems.Add(cleanLine);
-                            List<string> randomItems = GetRandomItems(magicItems, 42);
-
-                            foreach (var item in randomItems)
-                            {
-                               Search.LinearSearch(magicItems, item);
-
-                            }
                         }
 
                     }
 
+                    Console.WriteLine("=== Magic Item Search Comparison ===\n");
+                    //Gets 42 random items for the list 
+                    List<string> randomMagicItems = GetRandomItems(magicItems, 42);
+                    Console.WriteLine($"Selected 42 random items from the list of {magicItems.Count} magic items.\n");
+                    sort.QuickSorting(randomMagicItems, 0, randomMagicItems.Count - 1);
+
+                    for (int i = 0; i < randomMagicItems.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {randomMagicItems[i]}");
+                    }
+                    Console.WriteLine();
+
+                    int chosenItem = random.Next(randomMagicItems.Count);
+
+                    Console.WriteLine($"Randomly chosen item to search for: '{chosenItem}'\n");
+                    Console.WriteLine("--- Linear Search ---");
+                    
+                    int linearSerachResult = Search.LinearSearch(randomMagicItems, randomMagicItems[chosenItem]);
+                    Console.WriteLine($"Linear Search Result: Index {linearSerachResult}\n");
+                   
+                    Console.WriteLine("--- Binary Search ---");
+                    int binaryResult = Search.BinarySearch(randomMagicItems, randomMagicItems[chosenItem]);
+                    Console.WriteLine($"Binary Search Result: Index {binaryResult}\n");
+
                 }
+
                 sr.Close();
                 Console.ReadLine();
 
@@ -59,11 +88,13 @@
             HashandSearch();
         }
 
+
+
         public static List<string> GetRandomItems(List<string> magicItems, int numberofElements)
         {
-
             var random = new Random();
             var randomItems = new List<string>(magicItems.Count);  // Allocate memory for significant speedup.
+            int count = 0;
 
             for (int i = 0; i < numberofElements; i++)
             {
@@ -71,6 +102,9 @@
                 var randomIndex = random.Next(0, magicItems.Count);
                 var randomItem = magicItems[randomIndex];
                 randomItems.Add(randomItem);
+
+                //Console.WriteLine($"Item Added: {randomItem}");
+               // count++;
             }
 
             return randomItems;

@@ -9,6 +9,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{2796D091-B51B-4C19-8519-01B8233A022E}|Hash-Searching.csproj|c:\\users\\aaron\\desktop\\c#algo\\hash-searching\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2796D091-B51B-4C19-8519-01B8233A022E}|Hash-Searching.csproj|solutionrelative:search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2796D091-B51B-4C19-8519-01B8233A022E}|Hash-Searching.csproj|c:\\users\\aaron\\desktop\\c#algo\\hash-searching\\hash-searching.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2796D091-B51B-4C19-8519-01B8233A022E}|Hash-Searching.csproj|solutionrelative:hash-searching.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2796D091-B51B-4C19-8519-01B8233A022E}|Hash-Searching.csproj|c:\\users\\aaron\\desktop\\c#algo\\hash-searching\\hash-searching.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{2796D091-B51B-4C19-8519-01B8233A022E}|Hash-Searching.csproj|solutionrelative:hash-searching.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +26,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Hash-Searching",
+              "DocumentMoniker": "C:\\Users\\aaron\\Desktop\\C#Algo\\Hash-Searching\\Hash-Searching.csproj",
+              "RelativeDocumentMoniker": "Hash-Searching.csproj",
+              "ToolTip": "C:\\Users\\aaron\\Desktop\\C#Algo\\Hash-Searching\\Hash-Searching.csproj",
+              "RelativeToolTip": "Hash-Searching.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-23T17:39:12.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Hash-Searching.csproj",
+              "DocumentMoniker": "C:\\Users\\aaron\\Desktop\\C#Algo\\Hash-Searching\\Hash-Searching.csproj",
+              "RelativeDocumentMoniker": "Hash-Searching.csproj",
+              "ToolTip": "C:\\Users\\aaron\\Desktop\\C#Algo\\Hash-Searching\\Hash-Searching.csproj",
+              "RelativeToolTip": "Hash-Searching.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-23T17:14:49.41Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -28,7 +61,7 @@
               "RelativeDocumentMoniker": "Search.cs",
               "ToolTip": "C:\\Users\\aaron\\Desktop\\C#Algo\\Hash-Searching\\Search.cs",
               "RelativeToolTip": "Search.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAcwBgAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwC8AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-23T02:29:01.247Z",
               "EditorCaption": ""
@@ -39,9 +72,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\aaron\\Desktop\\C#Algo\\Hash-Searching\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\aaron\\Desktop\\C#Algo\\Hash-Searching\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAmwCAAAABWAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\aaron\\Desktop\\C#Algo\\Hash-Searching\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwDcAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-23T02:24:04.198Z",
               "EditorCaption": ""

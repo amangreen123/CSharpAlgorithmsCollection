@@ -8,4 +8,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="StacksAndQueue+Sorting">
+      <HintPath>..\StacksAndQueue+Sorting\obj\Debug\net8.0\ref\StacksAndQueue+Sorting.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

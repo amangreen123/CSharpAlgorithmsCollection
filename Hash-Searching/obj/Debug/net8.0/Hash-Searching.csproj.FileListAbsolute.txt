@@ -12,3 +12,7 @@ C:\Users\aaron\Desktop\C#Algo\Hash-Searching\obj\Debug\net8.0\refint\Hash-Search
 C:\Users\aaron\Desktop\C#Algo\Hash-Searching\obj\Debug\net8.0\Hash-Searching.pdb
 C:\Users\aaron\Desktop\C#Algo\Hash-Searching\obj\Debug\net8.0\Hash-Searching.genruntimeconfig.cache
 C:\Users\aaron\Desktop\C#Algo\Hash-Searching\obj\Debug\net8.0\ref\Hash-Searching.dll
+C:\Users\aaron\Desktop\C#Algo\Hash-Searching\obj\Debug\net8.0\Hash-Searching.sourcelink.json
+C:\Users\aaron\Desktop\C#Algo\Hash-Searching\bin\Debug\net8.0\StacksAndQueue+Sorting.dll
+C:\Users\aaron\Desktop\C#Algo\Hash-Searching\obj\Debug\net8.0\Hash-Searching.csproj.AssemblyReference.cache
+C:\Users\aaron\Desktop\C#Algo\Hash-Searching\obj\Debug\net8.0\Hash-Sea.DF07FB59.Up2Date

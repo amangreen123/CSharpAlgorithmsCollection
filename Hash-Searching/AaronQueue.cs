@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Stack_Queues_Sorting
 {
-    internal class Queue
+    internal class AaronQueue
     {
         Node front;
         Node tail;
 
-        public Queue() {
+        public AaronQueue() {
 
             front = null;
             tail = null;

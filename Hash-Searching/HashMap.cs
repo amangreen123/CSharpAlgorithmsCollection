@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stack_Queues_Sorting;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -10,11 +11,84 @@ namespace Hash_Searching
 {
     internal class HashMap
     {
-
+        // Define the size of the hash table
         private const int HASH_TABLE_SIZE = 250;
-        public Queue[] table = new Queue[HASH_TABLE_SIZE];
+        private int capacity;
+        // Create an array of AaronQueues to serve as the hash table
+        // Each AaronQueue will handle collisions through chaining
+        public AaronQueue[] table = new AaronQueue[HASH_TABLE_SIZE];
 
-            public static int makeHashCode(String str)
+        private int totalComparisons = 0;
+        private int totalGetOperations = 0;
+
+        public void createHashTable(int capacity)
+        {
+            this.capacity = capacity;
+            this.table = new AaronQueue[HASH_TABLE_SIZE];
+
+            for (int i = 0; i < HASH_TABLE_SIZE; i++)
+            {
+                this.table[i] = new AaronQueue();
+            }
+        }
+
+        public void Put(string key)
+        {
+            int index = makeHashCode(key);
+            table[index].Enqueue(key);
+        }
+
+        public string Get(string key) { 
+         
+            int index = makeHashCode(key);
+           
+            AaronQueue queue = table[index];
+            int comparison = 1;
+
+            //increase evertime a get is called 
+            totalGetOperations++;
+
+            if (queue.isEmpty())
+            {
+                Console.WriteLine($"Key '{key}' not found after {comparison} comparison(s).");
+
+                totalComparisons += comparison;
+                totalGetOperations++;
+                return null;
+            }
+
+            int size = queue.Size();
+
+            for (int i = 0; i < size; i++) { 
+            
+                string item = queue.Dequeue();
+
+                comparison++;
+                
+                if(item == key)
+                {
+                    queue.Enqueue(key);
+                    Console.WriteLine($"Key '{key}' found after {comparison} comparison(s).");
+                    totalComparisons += comparison;
+
+                    return item;
+                }
+
+                queue.Enqueue(item);
+            }
+
+            Console.WriteLine($"Key '{key}' not found after {comparison} comparison(s).");
+            
+            totalComparisons += comparison;
+            totalGetOperations++;
+            
+            return null;
+        
+        }
+        
+
+        // Method to generate a hash code for a given string
+        public static int makeHashCode(String str)
             {
                 str = str.ToUpper();
                 int length = str.Length;
@@ -30,10 +104,35 @@ namespace Hash_Searching
 
                 int hashCode = (letterTotal * 1) % 250;
                 return hashCode;
+        }
 
+
+
+        public void Display()
+        {
+            Console.WriteLine("\nHash Map Contents:");
+            for (int i = 0; i < table.Length; i++)
+            {
+                AaronQueue queue = table[i];
+                if (!queue.isEmpty())
+                {
+                    Console.Write($"Bucket {i}: ");
+                    int size = queue.Size();
+                    for (int j = 0; j < size; j++)
+                    {
+                        string item = queue.Dequeue();
+                        Console.Write($"{item} ");
+                        queue.Enqueue(item);
+                    }
+                    Console.WriteLine();
+                }
             }
+        }
 
-            public static void analyzeHashValues(int[] hashvalues)
+
+
+            // Method to analyze the distribution of hash values
+            public static void analyzeHashValues(int[] hashValues)
             {
                 int asteriskCount = 0;
                 int [] bucketCount = new int [HASH_TABLE_SIZE];
@@ -43,12 +142,12 @@ namespace Hash_Searching
 
             Console.WriteLine("HashTable Usage");
 
-            Array.Sort(hashvalues);
+            Array.Sort(hashValues);
 
 
             for (int i = 0; i < HASH_TABLE_SIZE; i++)
             {
-                bucketCount[i] = hashvalues[i];
+                bucketCount[i] = hashValues[i];
                 totalCount += bucketCount[i];
                 
                 if (bucketCount[i] > 0)
@@ -109,15 +208,19 @@ namespace Hash_Searching
                 double temp = sum / HASH_TABLE_SIZE;
                 double stdDev = Math.Sqrt(temp);
                 Console.WriteLine($"{stdDev:F2}");
-            }
-
-        public void addHash (string item)
-        {
-            int hash = makeHashCode(item);
-            table[hash].Enqueue(item);
         }
 
-       
+
+        public void PrintComparions()
+        {
+            double averageComparison = (double)totalComparisons / totalGetOperations;
+            Console.WriteLine($"Total comparisons: {totalComparisons}");
+            Console.WriteLine($"Total Get operations: {totalGetOperations}");
+            Console.WriteLine($"Average comparisons per Get: {averageComparison:F2}");
+
+        }
+
+
     }
 
 }

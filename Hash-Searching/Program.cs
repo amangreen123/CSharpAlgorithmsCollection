@@ -74,11 +74,50 @@ namespace Hash_Searching
                     Console.WriteLine("Hash code tests and analysis.");
                     Console.WriteLine("-----------------------------");
 
-                    //HashMap hashMap = new HashMap();
+                    HashMap hashMap = new HashMap();
                     int[] hashValues = new int[666];
-                    //Queue hashvalues = new Queue();
-                    int hashCode = 0;
+                    hashMap.createHashTable(250);
 
+                    AaronQueue queue = new AaronQueue();
+                    int hashCode = 0;
+       
+
+                    foreach (string item in randomMagicItems)
+                    {
+                        hashMap.Put(item);
+                    }
+
+                    foreach (string item in randomMagicItems) { 
+                    
+                        hashMap.Get(item);
+                    }
+                 
+
+
+                    Console.WriteLine("\nHash Map Contents:");
+                    hashMap.Display();
+
+                    //Perform Search
+                    Console.WriteLine("\nSearching for all items and counting comparisons:");
+                    
+                    string targetItem = randomMagicItems[chosenItem];
+                    hashMap.PrintComparions();
+
+                    Console.WriteLine($"\nSearching for: {targetItem}");
+
+                    string result = hashMap.Get(targetItem);
+
+                    if (result != null)
+                    {
+                        Console.WriteLine($"Target {targetItem} found in the map.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Target {targetItem} not found in the map.");
+                    }
+
+                    Console.WriteLine("\nGenerating hash codes for all items:");
+                    
                     for (int i = 0; i < randomMagicItems.Count; i++) {
 
                         hashCode = HashMap.makeHashCode(randomMagicItems[i]);

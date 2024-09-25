@@ -45,7 +45,10 @@ namespace Hash_Searching
 
                     }
 
-                    Console.WriteLine("=== Magic Item Search Comparison ===\n");
+                    Console.WriteLine("===============================================");
+                    Console.WriteLine("=== Magic Item Search and Hash Analysis ===");
+                    Console.WriteLine("===============================================\n");
+
                     //Gets 42 random items for the list 
                     List<string> randomMagicItems = GetRandomItems(magicItems, 42);
                     Console.WriteLine($"Selected 42 random items from the list of {magicItems.Count} magic items.\n");
@@ -56,9 +59,13 @@ namespace Hash_Searching
                         Console.WriteLine($"{i + 1}. {randomMagicItems[i]}");
                     }
                     Console.WriteLine();
-
                     int chosenItem = random.Next(randomMagicItems.Count);
                     string target = randomMagicItems[chosenItem];
+
+
+                    Console.WriteLine("===============================================");
+                    Console.WriteLine("=== Search Comparisons ===");
+                    Console.WriteLine("===============================================\n");
 
                     Console.WriteLine($"Randomly chosen item to search for: '{target}'\n");
                     Console.WriteLine("--- Linear Search ---");
@@ -70,9 +77,9 @@ namespace Hash_Searching
                     int binaryResult = Search.BinarySearch(randomMagicItems, randomMagicItems[chosenItem]);
                     Console.WriteLine($"Binary Search Result: Position {binaryResult}\n");
 
-
-                    Console.WriteLine("Hash code tests and analysis.");
-                    Console.WriteLine("-----------------------------");
+                    Console.WriteLine("===============================================");
+                    Console.WriteLine("=== Hash Code Analysis ===");
+                    Console.WriteLine("===============================================\n");
 
                     HashMap hashMap = new HashMap();
                     int[] hashValues = new int[666];
@@ -91,41 +98,50 @@ namespace Hash_Searching
                     
                         hashMap.Get(item);
                     }
-                 
 
-
-                    Console.WriteLine("\nHash Map Contents:");
-                    hashMap.Display();
-
-                    //Perform Search
-                    Console.WriteLine("\nSearching for all items and counting comparisons:");
-                    
-                    string targetItem = randomMagicItems[chosenItem];
-                    hashMap.PrintComparions();
-
-                    Console.WriteLine($"\nSearching for: {targetItem}");
-
-                    string result = hashMap.Get(targetItem);
-
-                    if (result != null)
-                    {
-                        Console.WriteLine($"Target {targetItem} found in the map.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Target {targetItem} not found in the map.");
-                    }
 
                     Console.WriteLine("\nGenerating hash codes for all items:");
-                    
-                    for (int i = 0; i < randomMagicItems.Count; i++) {
+
+                    for (int i = 0; i < randomMagicItems.Count; i++)
+                    {
 
                         hashCode = HashMap.makeHashCode(randomMagicItems[i]);
                         hashValues[i] = hashCode;
-                        Console.WriteLine(String.Format("{0:D3}", hashCode));
+                        hashValues[hashCode]++;
+                        //Console.WriteLine(String.Format("{0:D3}", hashCode));
+                        Console.WriteLine($"Item: {randomMagicItems[i]}, Hash Code: {hashCode:D3}");
                     }
 
                     HashMap.analyzeHashValues(hashValues);
+
+                    Console.WriteLine("Prints the HashMap:");
+                    hashMap.Display();
+
+                    Console.WriteLine("\n===============================================");
+                    Console.WriteLine("=== Search Performance ===");
+                    Console.WriteLine("===============================================\n");
+
+                    Console.WriteLine("Searching for all items and counting comparisons:");
+                    Console.WriteLine("------------------------------------------------");
+
+                    //Perform Search
+                    Console.WriteLine("\nSearching for all items and counting comparisons:");
+                
+                    hashMap.PrintComparions();
+
+                    Console.WriteLine($"\nSearching for: {target}");
+
+                    string result = hashMap.Get(target);
+
+                    if (result != null)
+                    {
+                        Console.WriteLine($"Target {target} found in the map.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Target {target} not found in the map.");
+                    }
+
 
                     sr.Close();
                     Console.ReadLine();

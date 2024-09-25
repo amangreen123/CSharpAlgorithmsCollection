@@ -11,9 +11,10 @@ namespace Hash_Searching
 {
     internal class HashMap
     {
-        // Define the size of the hash table
+        //Define the size of the hash table
         private const int HASH_TABLE_SIZE = 250;
         private int capacity;
+        
         // Create an array of AaronQueues to serve as the hash table
         // Each AaronQueue will handle collisions through chaining
         public AaronQueue[] table = new AaronQueue[HASH_TABLE_SIZE];
@@ -45,20 +46,18 @@ namespace Hash_Searching
             AaronQueue queue = table[index];
             int comparison = 1;
 
-            //increase evertime a get is called 
+            //increase everytime a get is called 
             totalGetOperations++;
 
             if (queue.isEmpty())
             {
-                Console.WriteLine($"Key '{key}' not found after {comparison} comparison(s).");
-
+                //Console.WriteLine($"Key '{key}' not found after {comparison} comparison(s).");
                 totalComparisons += comparison;
                 totalGetOperations++;
                 return null;
             }
 
             int size = queue.Size();
-
             for (int i = 0; i < size; i++) { 
             
                 string item = queue.Dequeue();
@@ -68,7 +67,7 @@ namespace Hash_Searching
                 if(item == key)
                 {
                     queue.Enqueue(key);
-                    Console.WriteLine($"Key '{key}' found after {comparison} comparison(s).");
+                    //Console.WriteLine($"Key '{key}' found after {comparison} comparison(s).");
                     totalComparisons += comparison;
 
                     return item;
@@ -77,7 +76,7 @@ namespace Hash_Searching
                 queue.Enqueue(item);
             }
 
-            Console.WriteLine($"Key '{key}' not found after {comparison} comparison(s).");
+           // Console.WriteLine($"Key '{key}' not found after {comparison} comparison(s).");
             
             totalComparisons += comparison;
             totalGetOperations++;
@@ -111,19 +110,26 @@ namespace Hash_Searching
         public void Display()
         {
             Console.WriteLine("\nHash Map Contents:");
+            int count = 0;
+
             for (int i = 0; i < table.Length; i++)
             {
                 AaronQueue queue = table[i];
+                
                 if (!queue.isEmpty())
                 {
                     Console.Write($"Bucket {i}: ");
+                    
                     int size = queue.Size();
+                    
                     for (int j = 0; j < size; j++)
                     {
+                        count++;
                         string item = queue.Dequeue();
                         Console.Write($"{item} ");
                         queue.Enqueue(item);
                     }
+                    Console.WriteLine($"\n Item Count {count} ");
                     Console.WriteLine();
                 }
             }
@@ -139,7 +145,9 @@ namespace Hash_Searching
                 int totalCount = 0;
                 int arrayIndex = 0;
                 int lineinFile = 666;
-
+            
+            Console.WriteLine("--------------------------");
+           
             Console.WriteLine("HashTable Usage");
 
             Array.Sort(hashValues);
@@ -208,7 +216,7 @@ namespace Hash_Searching
                 double temp = sum / HASH_TABLE_SIZE;
                 double stdDev = Math.Sqrt(temp);
                 Console.WriteLine($"{stdDev:F2}");
-        }
+            }
 
 
         public void PrintComparions()

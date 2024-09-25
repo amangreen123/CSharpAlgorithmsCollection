@@ -106,7 +106,7 @@ namespace Hash_Searching
                     {
 
                         hashCode = HashMap.makeHashCode(randomMagicItems[i]);
-                        hashValues[i] = hashCode;
+                        //hashValues[i] = hashCode;
                         hashValues[hashCode]++;
                         //Console.WriteLine(String.Format("{0:D3}", hashCode));
                         Console.WriteLine($"Item: {randomMagicItems[i]}, Hash Code: {hashCode:D3}");
@@ -114,18 +114,17 @@ namespace Hash_Searching
 
                     HashMap.analyzeHashValues(hashValues);
 
-                    Console.WriteLine("Prints the HashMap:");
                     hashMap.Display();
 
                     Console.WriteLine("\n===============================================");
                     Console.WriteLine("=== Search Performance ===");
                     Console.WriteLine("===============================================\n");
 
+
                     Console.WriteLine("Searching for all items and counting comparisons:");
                     Console.WriteLine("------------------------------------------------");
 
-                    //Perform Search
-                    Console.WriteLine("\nSearching for all items and counting comparisons:");
+                  
                 
                     hashMap.PrintComparions();
 

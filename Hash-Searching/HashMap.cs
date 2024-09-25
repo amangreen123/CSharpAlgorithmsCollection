@@ -109,7 +109,9 @@ namespace Hash_Searching
 
         public void Display()
         {
-            Console.WriteLine("\nHash Map Contents:");
+            Console.WriteLine("------------------------");
+            Console.WriteLine("=== HashMap Contents ===");
+            Console.WriteLine("------------------------");
             int count = 0;
 
             for (int i = 0; i < table.Length; i++)
@@ -129,10 +131,15 @@ namespace Hash_Searching
                         Console.Write($"{item} ");
                         queue.Enqueue(item);
                     }
-                    Console.WriteLine($"\n Item Count {count} ");
+                    
+                    
                     Console.WriteLine();
                 }
             }
+            Console.WriteLine("------------------------");
+            Console.WriteLine($"Total items in HashMap: {count}");
+            Console.WriteLine("------------------------");
+
         }
 
 
@@ -145,12 +152,12 @@ namespace Hash_Searching
                 int totalCount = 0;
                 int arrayIndex = 0;
                 int lineinFile = 666;
-            
-            Console.WriteLine("--------------------------");
-           
-            Console.WriteLine("HashTable Usage");
 
-            Array.Sort(hashValues);
+
+                Console.WriteLine("\n=== Hash Table Analysis ===");
+                Console.WriteLine("----------------------------");
+
+            //Array.Sort(hashValues);
 
 
             for (int i = 0; i < HASH_TABLE_SIZE; i++)
@@ -215,7 +222,10 @@ namespace Hash_Searching
                 }
                 double temp = sum / HASH_TABLE_SIZE;
                 double stdDev = Math.Sqrt(temp);
+                
                 Console.WriteLine($"{stdDev:F2}");
+
+                Console.WriteLine("----------------------------");
             }
 
 

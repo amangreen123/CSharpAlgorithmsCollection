@@ -211,7 +211,7 @@ namespace Stack_Queues_Sorting
 
             if (s == 0 && e == items.Count - 1 && printsOnce)
             {
-                PrintSortResults("Quick Sort", items);
+                //PrintSortResults("Quick Sort", items);
                 printsOnce = false; // Ensure print happens only once
             }
 

@@ -58,6 +58,7 @@ namespace Hash_Searching
             }
 
             int size = queue.Size();
+            
             for (int i = 0; i < size; i++) { 
             
                 string item = queue.Dequeue();
@@ -77,7 +78,6 @@ namespace Hash_Searching
             }
 
            // Console.WriteLine($"Key '{key}' not found after {comparison} comparison(s).");
-            
             totalComparisons += comparison;
             totalGetOperations++;
             
@@ -136,10 +136,10 @@ namespace Hash_Searching
                     Console.WriteLine();
                 }
             }
+            
             Console.WriteLine("------------------------");
             Console.WriteLine($"Total items in HashMap: {count}");
             Console.WriteLine("------------------------");
-
         }
 
 
@@ -154,6 +154,7 @@ namespace Hash_Searching
                 int lineinFile = 666;
 
 
+                Console.WriteLine("----------------------------");
                 Console.WriteLine("\n=== Hash Table Analysis ===");
                 Console.WriteLine("----------------------------");
 
@@ -232,10 +233,12 @@ namespace Hash_Searching
         public void PrintComparions()
         {
             double averageComparison = (double)totalComparisons / totalGetOperations;
+            
+            Console.WriteLine("----------------------------");
             Console.WriteLine($"Total comparisons: {totalComparisons}");
             Console.WriteLine($"Total Get operations: {totalGetOperations}");
             Console.WriteLine($"Average comparisons per Get: {averageComparison:F2}");
-
+            Console.WriteLine("----------------------------");
         }
 
 

@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace BSTGraphs
 {
-    class BSTNode
-    {
-        public string data { get; set; }
-        public BSTNode left { get; set; }
-        public BSTNode right { get; set; }
+   public class BSTNode
+   {
+        public string Data { get; set; }
+        public BSTNode Left { get; set; }
+        public BSTNode Right { get; set; }
 
-        public BSTNode()
+        public BSTNode(string data)
         {
-
+            this.Data = data;
+            this.Left = null;
+            this.Right = null;
         }
-    }
+   }
 }

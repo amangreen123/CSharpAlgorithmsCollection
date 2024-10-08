@@ -14,6 +14,7 @@ namespace BSTGraphs
         {
             string filepath = @"C:\Users\aaron\Desktop\magicitemsBST.txt";
             List<string> magicItems = new List<string>();
+            BinarySearchTree searchTree = new BinarySearchTree();
 
             try
             {
@@ -35,10 +36,16 @@ namespace BSTGraphs
                         {
                             magicItems.Add(cleanLine);
                             Console.WriteLine(cleanLine);
+                            searchTree.insert(cleanLine);
                         }
-                        
+
+                        for (int i = 0; i < magicItems.Count; i++)
+                        {
+
+                        }
+
                     }
-                   
+
                 }
 
             } catch (Exception e) {
@@ -49,6 +56,10 @@ namespace BSTGraphs
             Console.ReadLine();
         }
     }
+
+
 }
+
+
 
 

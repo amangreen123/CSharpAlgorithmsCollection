@@ -77,13 +77,13 @@ namespace BSTGraphs
             {
                 root.Left = AddValue(root.Left, value);
 
-                Console.WriteLine("L");
+                //Console.WriteLine("L");
             }
             
             else if (string.Compare(root.Data,value) < 0) {
                
                 root.Right = AddValue(root.Right, value);
-                Console.WriteLine("R");
+               // Console.WriteLine("R");
             }
 
             return root;
@@ -118,6 +118,7 @@ namespace BSTGraphs
 
                 inOrder(root.Left);
                 Console.WriteLine(root.Data);
+                
                 inOrder(root.Right);
 
             }
@@ -128,18 +129,18 @@ namespace BSTGraphs
         {
             if (root == null)
             {
+                Console.WriteLine("The tree is empty.");
                 return;
             }
 
             AaronQueue queue = new AaronQueue();
-
             queue.Enqueue(root);
 
             while (true)
             {
                 int nodeCount = queue.Size();
                 //Console.WriteLine(nodeCount);
-                Console.Write(root.Data + " ");
+                //Console.Write(root.Data + " ");
 
                 if (nodeCount == 0)
                 {
@@ -148,19 +149,23 @@ namespace BSTGraphs
 
                 while (nodeCount > 0)
                 {
-                    if (root.Left != null)
+                    Node queueNode = queue.Dequeue();
+
+                    BSTNode node = queueNode.value;
+                    
+                    //Console.Write(node.Data + " ");
+
+                    if (node.Left != null)
                     {
-                        queue.Enqueue(root);
+                        queue.Enqueue(node.Left);
                     }
 
-                    if (root.Right != null)
+                    if (node.Right != null)
                     {
 
-                        queue.Enqueue(root.Right.Data);
+                        queue.Enqueue(node.Right);
                     }
-
                     nodeCount--;
-
                 }
                 Console.WriteLine();
             }

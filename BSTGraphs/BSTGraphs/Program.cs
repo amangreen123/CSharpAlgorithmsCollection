@@ -42,8 +42,9 @@ namespace BSTGraphs
 
                     }
 
-                    //Console.WriteLine("Printing tree");
-                   // searchTree.printTree();
+                    Console.WriteLine("Printing tree");
+                    searchTree.inOrder();
+                    searchTree.printTree();
                     Console.WriteLine();
 
                 }

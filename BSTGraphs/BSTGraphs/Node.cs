@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BSTGraphs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,14 @@ namespace Stack_Queues_Sorting
 {
     internal class Node
     {
-       public string value;
+       public BSTNode value;
        public Node next;
 
-        public Node(string value)
+        public Node(BSTNode value)
         {
             this.value = value;
             this.next = null;
         }
+
     }
 }

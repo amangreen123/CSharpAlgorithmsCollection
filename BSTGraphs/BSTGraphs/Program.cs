@@ -12,6 +12,7 @@ namespace BSTGraphs
     {
         static void Main(string[] args)
         {
+            //@"C:\Users\aaron\Desktop\edgecase.txt"
             string filepath = @"C:\Users\aaron\Desktop\magicitemsBST.txt";
             List<string> magicItems = new List<string>();
             BinarySearchTree searchTree = new BinarySearchTree();
@@ -35,16 +36,15 @@ namespace BSTGraphs
                         if (!string.IsNullOrEmpty(cleanLine)) // Only add non-empty lines
                         {
                             magicItems.Add(cleanLine);
-                            Console.WriteLine(cleanLine);
+                            //Console.WriteLine(cleanLine);
                             searchTree.insert(cleanLine);
                         }
 
-                        for (int i = 0; i < magicItems.Count; i++)
-                        {
-
-                        }
-
                     }
+
+                    //Console.WriteLine("Printing tree");
+                   // searchTree.printTree();
+                    Console.WriteLine();
 
                 }
 

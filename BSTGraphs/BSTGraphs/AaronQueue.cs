@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BSTGraphs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,13 +19,13 @@ namespace Stack_Queues_Sorting
         }
 
         //Creates linked list Node 
-        public Node GetNode(string data)
+        public Node GetNode(BSTNode data)
         {
             Node node = new Node(data);
             return node;
         }
 
-        public void Enqueue(string data) { 
+        public void Enqueue(BSTNode data) { 
 
             Node newNode = new Node(data);
 
@@ -38,14 +39,14 @@ namespace Stack_Queues_Sorting
             tail = newNode;  
         }
 
-        public string Dequeue() {
+        public Node Dequeue() {
 
             if (isEmpty())
             {
                 return null;
             }
             
-            string value = front.value;
+            Node value = front;
             front = front.next;
 
             if (front == null)
@@ -89,14 +90,14 @@ namespace Stack_Queues_Sorting
             } 
         }
 
-        public string Peek()
+        public Node Peek()
         {
             if (isEmpty())
             {
                 return null;
             }
 
-            return front.value;
+            return front;
         }
 
     }

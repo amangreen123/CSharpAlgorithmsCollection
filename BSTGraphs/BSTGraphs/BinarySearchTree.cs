@@ -5,6 +5,7 @@ using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BSTGraphs
 {
@@ -31,6 +32,7 @@ namespace BSTGraphs
         /// </summary>
         public bool SearchNode(BSTNode root, string target)
         {
+            comparison = 0;
            
             // Base Case: root is null
             // or data stored at root is equal to string which is to be searched 
@@ -73,17 +75,21 @@ namespace BSTGraphs
 
             if(string.Compare(root.Data,value) > 0)
             {
-                root.Left = AddValue(root.Right, value);
+                root.Left = AddValue(root.Left, value);
+
+                Console.WriteLine("L");
             }
             
             else if (string.Compare(root.Data,value) < 0) {
                
-                root.Right = AddValue(root.Left, value);
+                root.Right = AddValue(root.Right, value);
+                Console.WriteLine("R");
             }
 
             return root;
           
         }
+
 
         int treeComparisons()
         {
@@ -98,6 +104,7 @@ namespace BSTGraphs
             inOrder(root);
         }
 
+       
 
         /// <summary>
         /// -- In-Order traversal --
@@ -115,6 +122,48 @@ namespace BSTGraphs
 
             }
 
+        }
+
+        public void printTree()
+        {
+            if (root == null)
+            {
+                return;
+            }
+
+            AaronQueue queue = new AaronQueue();
+
+            queue.Enqueue(root);
+
+            while (true)
+            {
+                int nodeCount = queue.Size();
+                //Console.WriteLine(nodeCount);
+                Console.Write(root.Data + " ");
+
+                if (nodeCount == 0)
+                {
+                    break;
+                }
+
+                while (nodeCount > 0)
+                {
+                    if (root.Left != null)
+                    {
+                        queue.Enqueue(root);
+                    }
+
+                    if (root.Right != null)
+                    {
+
+                        queue.Enqueue(root.Right.Data);
+                    }
+
+                    nodeCount--;
+
+                }
+                Console.WriteLine();
+            }
         }
 
 
